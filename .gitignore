@@ -1,0 +1,8 @@
+# Development files
+test.html
+yan_portfolio.html
+
+# System files
+.DS_Store
+*.HEIC
+

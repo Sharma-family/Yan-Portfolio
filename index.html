@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yan Sharma — AI Researcher & Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .nav-shadow {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+        
+        .card-minimal {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .card-minimal:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+        }
+        
+        .btn-primary {
+            background: #000;
+            color: #fff;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-primary:hover {
+            background: #333;
+        }
+        
+        .btn-secondary {
+            border: 1px solid #e5e7eb;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-secondary:hover {
+            border-color: #000;
+            background: #f9fafb;
+        }
+        
+        .section-padding {
+            padding: 6rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 3rem 0;
+            }
+        }
+        
+        /* Lightbox styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            cursor: zoom-out;
+        }
+        
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s;
+        }
+        
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10000;
+        }
+        
+        .lightbox-close:hover {
+            color: #ccc;
+        }
+        
+        .clickable-image {
+            cursor: zoom-in;
+            transition: opacity 0.2s;
+        }
+        
+        .clickable-image:hover {
+            opacity: 0.9;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 nav-shadow">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex justify-between items-center h-16">
+                <a href="#" class="text-lg font-semibold">Yan Sharma</a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">About</a>
+                    <a href="#research" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Research</a>
+                    <a href="#work" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Experience</a>
+                    <a href="mailto:yan.sharma008@gmail.com" class="text-sm bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800 transition-colors">
+                        Contact
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-32 pb-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="max-w-3xl">
+                <p class="text-sm text-gray-500 mb-4">AI Researcher • Staten Island Technical High School '26</p>
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight">
+                    Building AI systems for climate and disaster response
+                </h1>
+                <p class="text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl">
+                    High school researcher applying machine learning to real-world environmental challenges. 
+                    Focused on flood mapping, wildlife conservation, and ethical AI development.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#research" class="btn-primary px-6 py-3 rounded-full font-medium">
+                        View Research
+                    </a>
+                    <a href="mailto:yan.sharma008@gmail.com" class="btn-secondary px-6 py-3 rounded-full font-medium">
+                        Get in Touch
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-16 border-t">
+                <div>
+                    <div class="text-3xl font-bold mb-1">1580</div>
+                    <div class="text-sm text-gray-500">SAT Score</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold mb-1">97.4</div>
+                    <div class="text-sm text-gray-500">GPA</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold mb-1">Top 1%</div>
+                    <div class="text-sm text-gray-500">National Merit</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold mb-1">5 APs</div>
+                    <div class="text-sm text-gray-500">Score of 5</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding px-6 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12">About</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <img src="Yan.JPG" alt="Yan Sharma" class="rounded-2xl w-full mb-8 shadow-sm" style="max-height: 500px; object-fit: cover; object-position: center 75%;" onerror="console.error('Failed to load:', this.src)">
+                    <div class="space-y-4 text-gray-600 leading-relaxed">
+                        <p>
+                            I'm a high school senior at Staten Island Technical High School, exploring how machine learning can solve pressing environmental challenges.
+                        </p>
+                        <p>
+                            My journey started with a question: How can we use satellite data to save lives during disasters? This led to developing AI models for flood mapping that help emergency managers make faster decisions.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Research Interests</h3>
+                        <ul class="space-y-3 text-gray-600">
+                            <li>• Machine Learning & Computer Vision</li>
+                            <li>• Climate Science & Disaster Response</li>
+                            <li>• Environmental Data Analysis</li>
+                            <li>• AI Ethics & Policy</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Technical Skills</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-white border rounded-full text-sm">Python</span>
+                            <span class="px-3 py-1 bg-white border rounded-full text-sm">TensorFlow</span>
+                            <span class="px-3 py-1 bg-white border rounded-full text-sm">PyTorch</span>
+                            <span class="px-3 py-1 bg-white border rounded-full text-sm">Java</span>
+                            <span class="px-3 py-1 bg-white border rounded-full text-sm">JavaScript</span>
+                            <span class="px-3 py-1 bg-white border rounded-full text-sm">SQL</span>
+                            <span class="px-3 py-1 bg-white border rounded-full text-sm">Vue/Nuxt</span>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <img src="Medical%20Conference.JPG" alt="Research Conference" class="rounded-lg w-full h-48 object-cover mb-2">
+                            <p class="text-xs text-gray-500 text-center">Medical Science Liaison Society Annual Conference 2025, Miami</p>
+                        </div>
+                        <div>
+                            <img src="Cornell%20Computing%20Comp.JPG" alt="Computing" class="rounded-lg w-full h-48 object-cover mb-2">
+                            <p class="text-xs text-gray-500 text-center">Cornell HS Computing Competition 2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="section-padding px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Research</h2>
+                <p class="text-gray-600 max-w-2xl">
+                    Applying machine learning to environmental challenges with real-world impact.
+                </p>
+            </div>
+            
+            <div class="space-y-8">
+                <!-- Project 1 -->
+                <div class="bg-white border rounded-2xl p-8 card-minimal">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Flood Zone Segmentation Using U-Net and Blended Loss Functions</h3>
+                            <p class="text-sm text-gray-500">December 2025 • Co-researchers: Oleg Ponyatyshyn, Vaibhav Dixit • Advisor: Dr. John Davis</p>
+                        </div>
+                        <a href="Flood%20Zone%20Segmentation%20with%20U-Net.pdf" target="_blank" class="btn-primary px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap">
+                            Read Paper
+                        </a>
+                    </div>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        Developed a U-Net convolutional neural network to automatically map flooded areas from satellite imagery, 
+                        addressing a critical need for rapid disaster assessment. The study evaluated how different combinations 
+                        of Dice and Focal loss functions affect segmentation accuracy on imbalanced data.
+                    </p>
+                    
+                    <!-- Performance Table -->
+                    <div class="mb-6">
+                        <h4 class="text-lg font-bold mb-4">📊 Performance Comparison Across Loss Functions</h4>
+                        <div class="overflow-x-auto">
+                            <table class="w-full border-collapse bg-gray-50 rounded-lg overflow-hidden">
+                                <thead>
+                                    <tr class="bg-gray-200">
+                                        <th class="text-left p-3 text-sm font-semibold">Loss Function</th>
+                                        <th class="text-left p-3 text-sm font-semibold">Land IoU</th>
+                                        <th class="text-left p-3 text-sm font-semibold">Water IoU</th>
+                                        <th class="text-left p-3 text-sm font-semibold">Cloud IoU</th>
+                                        <th class="text-left p-3 text-sm font-semibold">Land Acc</th>
+                                        <th class="text-left p-3 text-sm font-semibold">Water Acc</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-sm">
+                                    <tr class="border-t">
+                                        <td class="p-3 font-medium">Pure Dice (Control)</td>
+                                        <td class="p-3">0.87</td>
+                                        <td class="p-3">0.52</td>
+                                        <td class="p-3">0.68</td>
+                                        <td class="p-3">91.4%</td>
+                                        <td class="p-3">91.5%</td>
+                                    </tr>
+                                    <tr class="border-t">
+                                        <td class="p-3 font-medium">0.5 Dice / 0.5 Focal</td>
+                                        <td class="p-3">0.68</td>
+                                        <td class="p-3">0.23</td>
+                                        <td class="p-3">0.68</td>
+                                        <td class="p-3">65.9%</td>
+                                        <td class="p-3">97.1%</td>
+                                    </tr>
+                                    <tr class="border-t bg-blue-50">
+                                        <td class="p-3 font-bold">0.75 Dice / 0.25 Focal ⭐</td>
+                                        <td class="p-3 font-bold">0.914</td>
+                                        <td class="p-3 font-bold">0.660</td>
+                                        <td class="p-3 font-bold">0.747</td>
+                                        <td class="p-3 font-bold">95.1%</td>
+                                        <td class="p-3 font-bold">92.0%</td>
+                                    </tr>
+                                    <tr class="border-t">
+                                        <td class="p-3 font-medium">0.9 Dice / 0.1 Focal</td>
+                                        <td class="p-3">0.919</td>
+                                        <td class="p-3">0.680</td>
+                                        <td class="p-3">0.754</td>
+                                        <td class="p-3">95.9%</td>
+                                        <td class="p-3">91.4%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-2">⭐ indicates optimal configuration balancing accuracy and IoU across all classes</p>
+                    </div>
+                    
+                    <!-- Key Findings -->
+                    <div class="bg-gray-50 rounded-xl p-6 mb-6">
+                        <h4 class="font-bold mb-3">Key Findings:</h4>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li><strong>Optimal Configuration:</strong> 0.75 Dice / 0.25 Focal loss achieved the best balance, improving water IoU from 0.52 to 0.66 and cloud IoU from 0.68 to 0.75 compared to pure Dice loss</li>
+                            <li><strong>Practical Insight:</strong> Pure Dice loss achieved 91.5% water accuracy but only 0.52 IoU—revealing that high accuracy doesn't guarantee reliable flood mapping due to systematic overestimation</li>
+                            <li><strong>Implementation Gap:</strong> Identified that 92% accurate models still face deployment challenges when emergency managers need near-perfect reliability for life-or-death decisions</li>
+                            <li><strong>Technical Achievement:</strong> Demonstrated that modest focal weighting (25%) reduces false positives without destabilizing segmentation, while aggressive weighting (50%) degrades performance</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-medium">Python</span>
+                        <span class="px-3 py-1 bg-green-50 text-green-700 rounded-full text-xs font-medium">TensorFlow</span>
+                        <span class="px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-xs font-medium">Keras</span>
+                        <span class="px-3 py-1 bg-orange-50 text-orange-700 rounded-full text-xs font-medium">U-Net CNN</span>
+                        <span class="px-3 py-1 bg-pink-50 text-pink-700 rounded-full text-xs font-medium">Sentinel-1/2</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-white border rounded-2xl p-8 card-minimal">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Assessing Climate Impact on Spectacled Eider Migration Using LSTM Models</h3>
+                            <p class="text-sm text-gray-500">October 2024 • Co-researcher: Noah Abbas • SERP Program</p>
+                        </div>
+                        <a href="Migration.docx.pdf" target="_blank" class="btn-primary px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap">
+                            Read Paper
+                        </a>
+                    </div>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        Analyzed how global warming affects the migration patterns of the endangered Spectacled Eider waterfowl 
+                        using machine learning. Built LSTM neural networks to predict migration latitude based on temperature data, 
+                        working with GPS tracking data spanning 1993-2012.
+                    </p>
+                    
+                    <!-- LSTM Performance Metrics -->
+                    <div class="bg-gray-50 rounded-xl p-6 mb-6">
+                        <h4 class="text-lg font-bold mb-4">📉 LSTM Model Performance:</h4>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li><strong>Mean Squared Error (MSE):</strong> 0.0504 (scaled)</li>
+                            <li><strong>Root Mean Squared Error (RMSE):</strong> 0.2245 (22% of normalized range)</li>
+                            <li><strong>Unscaled Prediction Error:</strong> ±2.6 degrees latitude (~290 km)</li>
+                            <li><strong>Training Data:</strong> 79 months with gaps (1993-2012)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 p-6 bg-blue-50 rounded-xl mb-6">
+                        <div>
+                            <div class="text-2xl font-bold mb-1">±2.6°</div>
+                            <div class="text-xs text-gray-500">Latitude Error</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold mb-1">~290km</div>
+                            <div class="text-xs text-gray-500">Avg Distance</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold mb-1">79</div>
+                            <div class="text-xs text-gray-500">Training Months</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold mb-1">87%</div>
+                            <div class="text-xs text-gray-500">Pop. Decline</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Key Findings -->
+                    <div class="bg-gray-50 rounded-xl p-6 mb-6">
+                        <h4 class="font-bold mb-3">Key Findings:</h4>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li><strong>Data Challenges:</strong> Department of Interior database had significant gaps in tracking data—a real-world constraint that taught me how imperfect datasets limit model performance</li>
+                            <li><strong>Model Performance:</strong> LSTM achieved 2.6-degree average error in latitude prediction, capturing general trends but revealing that temperature alone is insufficient for accurate migration forecasting</li>
+                            <li><strong>Polynomial Regression:</strong> Tested correlation between maximum latitude and global temperature, finding weak correlation (R² = 0.153) that highlighted the need for multi-factor analysis</li>
+                            <li><strong>Cross-Correlation Analysis:</strong> Found varying correlation strengths (0.34-0.97) across different time periods, suggesting temporal variability in climate-migration relationships</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <p class="text-sm text-gray-700 italic">
+                            <strong>Conservation Impact:</strong> The 87% population decline of Spectacled Eiders makes understanding 
+                            climate-driven migration patterns critical for species survival strategies.
+                        </p>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-medium">Python</span>
+                        <span class="px-3 py-1 bg-green-50 text-green-700 rounded-full text-xs font-medium">TensorFlow</span>
+                        <span class="px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-xs font-medium">Keras</span>
+                        <span class="px-3 py-1 bg-orange-50 text-orange-700 rounded-full text-xs font-medium">LSTM</span>
+                        <span class="px-3 py-1 bg-pink-50 text-pink-700 rounded-full text-xs font-medium">Plotly</span>
+                        <span class="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-xs font-medium">Time Series</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-white border rounded-2xl p-8 card-minimal">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Effect of Urbanization on Wild Turkey Reproduction in Staten Island</h3>
+                            <p class="text-sm text-gray-500">June 2024 • Co-researcher: Oleg Ponyatyshyn • SERP Program</p>
+                        </div>
+                        <a href="Turkey%20Research.pdf" target="_blank" class="btn-primary px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap">
+                            Read Paper
+                        </a>
+                    </div>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        Field study examining how urban development affects wild turkey reproductive success by comparing nests 
+                        in two Staten Island locations with different urbanization levels. Monitored 20 nests over a 10-week period 
+                        to measure clutch size, hatch rate, and nest success rate.
+                    </p>
+                    
+                    <!-- Reproductive Metrics Table -->
+                    <div class="mb-6">
+                        <h4 class="text-lg font-bold mb-4">📊 Reproductive Metrics Comparison</h4>
+                        <div class="overflow-x-auto">
+                            <table class="w-full border-collapse bg-gray-50 rounded-lg overflow-hidden">
+                                <thead>
+                                    <tr class="bg-gray-200">
+                                        <th class="text-left p-3 text-sm font-semibold">Location</th>
+                                        <th class="text-left p-3 text-sm font-semibold">Nests</th>
+                                        <th class="text-left p-3 text-sm font-semibold">Clutch Size</th>
+                                        <th class="text-left p-3 text-sm font-semibold">Hatch Rate</th>
+                                        <th class="text-left p-3 text-sm font-semibold">Nest Success</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-sm">
+                                    <tr class="border-t bg-orange-50">
+                                        <td class="p-3 font-medium">Hospital Campus</td>
+                                        <td class="p-3">11</td>
+                                        <td class="p-3">10.56 ± 2.35</td>
+                                        <td class="p-3">81%</td>
+                                        <td class="p-3">45.5%</td>
+                                    </tr>
+                                    <tr class="border-t bg-green-50">
+                                        <td class="p-3 font-medium">Clove Lakes Park</td>
+                                        <td class="p-3">9</td>
+                                        <td class="p-3">8.29 ± 1.6</td>
+                                        <td class="p-3">76%</td>
+                                        <td class="p-3">33.3%</td>
+                                    </tr>
+                                    <tr class="border-t">
+                                        <td class="p-3 font-medium">Combined Average</td>
+                                        <td class="p-3">20</td>
+                                        <td class="p-3">9.56 ± 2.33</td>
+                                        <td class="p-3">79%</td>
+                                        <td class="p-3">40%</td>
+                                    </tr>
+                                    <tr class="border-t bg-purple-50">
+                                        <td class="p-3 font-medium">Urban Studies (Lit.)</td>
+                                        <td class="p-3">-</td>
+                                        <td class="p-3">10.4</td>
+                                        <td class="p-3">86.5%</td>
+                                        <td class="p-3">36%</td>
+                                    </tr>
+                                    <tr class="border-t bg-blue-50">
+                                        <td class="p-3 font-medium">Wild Studies (Lit.)</td>
+                                        <td class="p-3">-</td>
+                                        <td class="p-3">11.33</td>
+                                        <td class="p-3">89.5%</td>
+                                        <td class="p-3">30%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-2">No significant difference between Hospital and Park (p > 0.05), but both differ from wild environments</p>
+                    </div>
+                    
+                    <!-- Site Comparison -->
+                    <div class="grid md:grid-cols-2 gap-4 mb-6">
+                        <div class="border rounded-lg p-4 bg-orange-50">
+                            <h5 class="font-bold mb-2">🏙️ Hospital Campus (Urban)</h5>
+                            <p class="text-sm text-gray-700">11 nests • Heavy development • 10.56 avg eggs</p>
+                        </div>
+                        <div class="border rounded-lg p-4 bg-green-50">
+                            <h5 class="font-bold mb-2">🌳 Clove Lakes Park (Natural)</h5>
+                            <p class="text-sm text-gray-700">9 nests • Park setting • 8.29 avg eggs</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Key Findings -->
+                    <div class="bg-gray-50 rounded-xl p-6 mb-6">
+                        <h4 class="font-bold mb-3">Key Findings:</h4>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li><strong>Surprising Results:</strong> Nests in the highly urbanized hospital campus had larger clutch sizes (10.56 vs 8.29 eggs) and higher hatch rates (81% vs 76%) than park nests, contradicting initial hypothesis</li>
+                            <li><strong>Scale Matters:</strong> Immediate surroundings matter less than regional urbanization—both study sites were in suburban Staten Island, suggesting broader area characteristics override local differences</li>
+                            <li><strong>Comparison to Literature:</strong> Staten Island's average clutch size (9.56) significantly differed from wild environments (11.33) but not urban areas (10.4), confirming urban adaptation patterns</li>
+                            <li><strong>Methodology:</strong> Conducted systematic field observations twice weekly, assigned unique identifiers to nests, recorded GPS coordinates, and tracked predation events</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-green-50 text-green-700 rounded-full text-xs font-medium">Field Study</span>
+                        <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-medium">Statistics</span>
+                        <span class="px-3 py-1 bg-yellow-50 text-yellow-700 rounded-full text-xs font-medium">Ecology</span>
+                        <span class="px-3 py-1 bg-orange-50 text-orange-700 rounded-full text-xs font-medium">T-tests</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="work" class="section-padding px-6 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12">Experience & Leadership</h2>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white border rounded-2xl p-6 card-minimal">
+                    <div class="mb-4">
+                        <h3 class="text-xl font-bold mb-2">FTC Robotics Coach</h3>
+                        <p class="text-sm text-gray-500">Saturn Robotics Team • 11th-12th Grade</p>
+                    </div>
+                    <img src="MayorCupWinner.PNG" alt="Robotics" class="rounded-lg w-full h-48 object-cover mb-2">
+                    <p class="text-xs text-gray-500 mb-4">NYC Mayor Cup 2025 Winner!</p>
+                    <p class="text-gray-600 mb-4">
+                        Lead programmer and coach. Built autonomous navigation code in Java. 
+                        Our Rookie team won the NYC Mayors Cup!
+                    </p>
+                    <span class="inline-block px-3 py-1 bg-yellow-50 text-yellow-700 rounded-full text-xs font-medium">
+                        🏆 NYC Mayor's Cup Champions
+                    </span>
+                </div>
+                
+                <div class="bg-white border rounded-2xl p-6 card-minimal">
+                    <div class="mb-4">
+                        <h3 class="text-xl font-bold mb-2">Model UN Vice President</h3>
+                        <p class="text-sm text-gray-500">10th-12th Grade</p>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Trained 40+ peers in parliamentary procedure and resolution writing. 
+                        Spoke on human trafficking and fentanyl crisis at NHSMUN.
+                    </p>
+                    <span class="inline-block px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-medium">
+                        Best Diplomat • FWWMUN 2025
+                    </span>
+                </div>
+                
+                <div class="bg-white border rounded-2xl p-6 card-minimal">
+                    <div class="mb-4">
+                        <h3 class="text-xl font-bold mb-2">Civics Club President</h3>
+                        <p class="text-sm text-gray-500">10th-12th Grade</p>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Grew club from 6 to 25+ members. Taught Model Congress debate techniques. 
+                        Led delegations to Yale, Dalton, and NYC competitions.
+                    </p>
+                </div>
+                
+                <div class="bg-white border rounded-2xl p-6 card-minimal">
+                    <div class="mb-4">
+                        <h3 class="text-xl font-bold mb-2">Full Stack Developer</h3>
+                        <p class="text-sm text-gray-500">12th Grade</p>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Built prom table organization system and school store rewards platform 
+                        using Express.js backend and Vue/Nuxt frontend.
+                    </p>
+                </div>
+                
+                <div class="bg-white border rounded-2xl p-6 card-minimal">
+                    <div class="mb-4">
+                        <h3 class="text-xl font-bold mb-2">Varsity Soccer</h3>
+                        <p class="text-sm text-gray-500">10+ Years</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 mb-4">
+                        <img src="Varsity%20Soccer.JPG" alt="Soccer" class="rounded-lg w-full h-32 object-cover object-top">
+                        <img src="Soccer%202.JPG" alt="Soccer" class="rounded-lg w-full h-32 object-cover object-top">
+                    </div>
+                    <p class="text-gray-600">
+                        Competitive player learning discipline, teamwork, and resilience through varsity and club competition.
+                    </p>
+                </div>
+                
+                <div class="bg-white border rounded-2xl p-6 card-minimal">
+                    <div class="mb-4">
+                        <h3 class="text-xl font-bold mb-2">School IT Staff</h3>
+                        <p class="text-sm text-gray-500">10th-12th Grade</p>
+                    </div>
+                    <p class="text-gray-600">
+                        Solved technical issues for 80+ faculty members. Maintained hardware/software 
+                        infrastructure and trained new staff.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Honors Section -->
+    <section class="section-padding px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12">Honors & Awards</h2>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="border rounded-2xl p-6">
+                    <div class="text-4xl mb-3">🏆</div>
+                    <h3 class="font-bold mb-2">NYC Mayor's Cup Champions</h3>
+                    <p class="text-sm text-gray-600">FTC Robotics • 11th Grade</p>
+                </div>
+                
+                <div class="border rounded-2xl p-6">
+                    <div class="text-4xl mb-3">🎓</div>
+                    <h3 class="font-bold mb-2">National Merit Semifinalist</h3>
+                    <p class="text-sm text-gray-600">Top 1% Nationwide • 11th Grade</p>
+                </div>
+                
+                <div class="border rounded-2xl p-6">
+                    <div class="text-4xl mb-3">💻</div>
+                    <h3 class="font-bold mb-2">USACO Silver Division</h3>
+                    <p class="text-sm text-gray-600">Competitive Programming • 10th Grade</p>
+                </div>
+                
+                <div class="border rounded-2xl p-6">
+                    <div class="text-4xl mb-3">🌍</div>
+                    <h3 class="font-bold mb-2">Best Delegate</h3>
+                    <p class="text-sm text-gray-600">FWWMUN • 11th Grade</p>
+                </div>
+                
+                <div class="border rounded-2xl p-6">
+                    <div class="text-4xl mb-3">🤖</div>
+                    <h3 class="font-bold mb-2">Innovate Award</h3>
+                    <p class="text-sm text-gray-600">FTC NYC Qualifier • 11th Grade</p>
+                </div>
+                
+                <div class="border rounded-2xl p-6">
+                    <div class="text-4xl mb-3">📚</div>
+                    <h3 class="font-bold mb-2">5 AP Exams - Score of 5</h3>
+                    <p class="text-sm text-gray-600">Calc BC, English Lang, Chem, APUSH, World</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="section-padding px-6 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-gradient-to-br from-gray-50 to-blue-50 rounded-3xl p-8 md:p-12 border-l-4 border-blue-600">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6">My Philosophy? Still Working On It!</h2>
+                <div class="text-lg text-gray-700 leading-relaxed space-y-4">
+                    <p>
+                        In the interim I just love learning. Started with Hitchhiker's Guide and Greek gods, now I'm working 
+                        with MIT grad students on climate research. What connects it all is curiosity and collaboration—whether 
+                        I'm designing AI robotics, studying threatened species, exploring exoplanets, building ethical frameworks 
+                        for AI, or just hanging out with friends.
+                    </p>
+                    <p>
+                        Success means staying excited about both the profound and the playful, the serious research and the random 
+                        deep-dive. <strong>Learning is the point.</strong> The rest is just choosing which frontier to explore next.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-padding px-6 bg-gray-50">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">Let's Connect</h2>
+            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                I'm always excited to discuss research, collaborate on projects, or connect with fellow innovators.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="mailto:yan.sharma008@gmail.com" class="btn-primary px-8 py-4 rounded-full font-medium text-lg">
+                    Email Me
+                </a>
+                <a href="tel:+17184314728" class="btn-secondary px-8 py-4 rounded-full font-medium text-lg">
+                    +1 (718) 431-4728
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t py-12 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-center md:text-left">
+                <div class="font-semibold mb-1">Yan Sharma</div>
+                <div class="text-sm text-gray-500">© 2025 • Staten Island Technical High School</div>
+            </div>
+            <div class="flex gap-8 text-sm text-gray-600">
+                <a href="mailto:yan.sharma008@gmail.com" class="hover:text-gray-900 transition-colors">Email</a>
+                <a href="tel:+17184314728" class="hover:text-gray-900 transition-colors">Phone</a>
+                <a href="#research" class="hover:text-gray-900 transition-colors">Research</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.querySelector('.lightbox-close');
+
+        // Add click handlers to all images
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img:not([alt=""]):not(.lightbox img)');
+            images.forEach(img => {
+                // Skip very small images (icons, etc)
+                if (img.width > 50 || img.naturalWidth > 50) {
+                    img.classList.add('clickable-image');
+                    img.addEventListener('click', function() {
+                        lightboxImg.src = this.src;
+                        lightbox.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    });
+                }
+            });
+        });
+
+        // Close lightbox when clicking X or background
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Close with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    </script>
+</body>
+</html>
